@@ -46,4 +46,46 @@ public class RollerCoaster {
 		this.name = name;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + maxCapacity;
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + numberCarts;
+		long temp;
+		temp = Double.doubleToLongBits(rating);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		RollerCoaster other = (RollerCoaster) obj;
+		if (maxCapacity != other.maxCapacity)
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (numberCarts != other.numberCarts)
+			return false;
+		if (Double.doubleToLongBits(rating) != Double.doubleToLongBits(other.rating))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "RollerCoaster [numberCarts=" + numberCarts + ", rating=" + rating + ", maxCapacity=" + maxCapacity
+				+ ", name=" + name + "]";
+	}
+	
 }
