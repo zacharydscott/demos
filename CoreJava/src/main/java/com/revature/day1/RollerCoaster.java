@@ -1,6 +1,6 @@
 package com.revature.day1;
 
-public class RollerCoaster {
+public class RollerCoaster implements Comparable<RollerCoaster> {
 	private int numberCarts;
 	private double rating;
 	private int maxCapacity;
@@ -87,5 +87,14 @@ public class RollerCoaster {
 		return "RollerCoaster [numberCarts=" + numberCarts + ", rating=" + rating + ", maxCapacity=" + maxCapacity
 				+ ", name=" + name + "]";
 	}
-	
+
+	@Override
+	public int compareTo(RollerCoaster o) {
+		int compare =  (int) Math.round(o.getRating() - this.getRating());
+		if(compare == 0) {
+			return this.getName().compareTo(o.getName());
+		}
+		return compare;
+	}
+
 }
