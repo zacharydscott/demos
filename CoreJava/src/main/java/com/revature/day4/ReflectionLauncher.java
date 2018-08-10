@@ -1,7 +1,8 @@
 package com.revature.day4;
 
 import java.lang.reflect.Field;
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.revature.day1.RollerCoaster;
 
@@ -14,14 +15,16 @@ public class ReflectionLauncher {
 		Field f = rc.getClass().getDeclaredField("name");
 		f.setAccessible(true);
 		f.set(rc, "modified illegally");
+
 		
-		System.out.println(rc);
+		String s2 = "hello world";
+		System.out.println(s2.replaceAll(" ", ""));
 		
-		
-		String s = "hello";
-		String[] split = s.split("");
-		System.out.println(Arrays.toString(split));
-		
+		List<Integer> arr = new ArrayList<>();
+		arr.add(1);
+		arr.add(5000);
+		arr.add(2);
+		System.out.println(arr.contains(5000));
 	}
 
 }

@@ -31,5 +31,13 @@ public class ComparingLauncher {
 		for(RollerCoaster rc: rollerCoasters) {
 			System.out.println(rc);
 		}
+		
+		System.out.println("by name");
+		rollerCoasters.sort((one, two) -> {
+			return one.getName().compareTo(two.getName());
+		});
+		for(RollerCoaster rc: rollerCoasters) {
+			System.out.println(rc);
+		}
 	}
 }

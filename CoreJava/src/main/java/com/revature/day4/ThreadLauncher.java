@@ -46,6 +46,15 @@ public class ThreadLauncher {
 		
 //		Thread t1 = new Thread();
 		
+		Thread t = new Thread(() -> {
+			while(true) {
+				System.out.println("hello");
+			}
+		});
+		t.start();
+		while(true) {
+			System.out.println("world");
+		}
 		
 	}
 }
