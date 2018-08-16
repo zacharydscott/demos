@@ -168,3 +168,14 @@ set schema 'weapon_store';
 -- EXECUTE PROCEDURE no_weapon_id_update();
 
 
+-- CREATE OR REPLACE FUNCTION find_user_weapons_ids(u_id INTEGER)
+-- RETURNS TABLE(id INTEGER, owner INTEGER) AS $$
+-- BEGIN 
+-- 	RETURN QUERY SELECT weapon_id, user_id FROM weapons WHERE user_id = u_id;
+-- END;
+-- $$ LANGUAGE plpgsql;
+
+SELECT * FROM find_user_weapons_ids(1);
+
+
+
