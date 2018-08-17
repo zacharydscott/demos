@@ -1,14 +1,8 @@
 package com.revature.beans;
 
-import java.io.Serializable;
+public class User {
 
-public class User implements Serializable {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 2878891003003024330L;
-	
+	private int id;
 	private String username;
 	private String password;
 	private String firstName;
@@ -20,13 +14,22 @@ public class User implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public User(String username, String password, String firstName, String lastName, int age) {
+	public User(int id, String username, String password, String firstName, String lastName, int age) {
 		super();
+		this.id = id;
 		this.username = username;
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.age = age;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getUsername() {
@@ -75,6 +78,7 @@ public class User implements Serializable {
 		int result = 1;
 		result = prime * result + age;
 		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
+		result = prime * result + id;
 		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		result = prime * result + ((username == null) ? 0 : username.hashCode());
@@ -97,6 +101,8 @@ public class User implements Serializable {
 				return false;
 		} else if (!firstName.equals(other.firstName))
 			return false;
+		if (id != other.id)
+			return false;
 		if (lastName == null) {
 			if (other.lastName != null)
 				return false;
@@ -117,8 +123,8 @@ public class User implements Serializable {
 
 	@Override
 	public String toString() {
-		return "User [username=" + username + ", password=" + password + ", firstName=" + firstName + ", lastName="
-				+ lastName + ", age=" + age + "]";
+		return "User [id=" + id + ", username=" + username + ", password=" + password + ", firstName=" + firstName
+				+ ", lastName=" + lastName + ", age=" + age + "]";
 	}
 
 }

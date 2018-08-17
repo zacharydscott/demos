@@ -1,9 +1,16 @@
 package com.revature.screens;
 
+import java.util.List;
 import java.util.Scanner;
+
+import com.revature.beans.Weapon;
+import com.revature.daos.WeaponDao;
+import com.revature.util.AppState;
 
 public class HomeScreen implements Screen {
 	private Scanner scan = new Scanner(System.in);
+	private WeaponDao wd = WeaponDao.currentWeaponDao;
+	private AppState state = AppState.state;
 
 	public Screen start() {
 		System.out.println("Please chose from following options:");
@@ -14,10 +21,12 @@ public class HomeScreen implements Screen {
 		String selection = scan.nextLine();
 		switch (selection) {
 		case "1":
-			System.out.println("selected 1 not yet implemented that screen");
-			break;
+			return new BuildAWeapon();
 		case "2":
-			System.out.println("selected 2 not yet implemented that screen");
+			List<Weapon> weapons = wd.findByUserId(state.getCurrentUser().getId());
+			weapons.stream().forEach((each) -> {
+				System.out.println(each);
+			});
 			break;
 		case "3":
 			System.out.println("selected 3 not yet implemented that screen");

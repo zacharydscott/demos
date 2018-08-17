@@ -69,6 +69,7 @@ public class UserDaoJdbc implements UserDao {
 				u.setFirstName(rs.getString("firstname"));
 				u.setLastName(rs.getString("lastname"));
 				u.setUsername(rs.getString("username"));
+				u.setId(rs.getInt("user_id"));
 				return u;
 			} else {
 				log.warn("failed to find user with provided credentials from the db");

@@ -349,3 +349,59 @@
 2018-08-16 16:41:59 DEBUG LoginScreen:28 - received users credentials
 2018-08-16 16:41:59 INFO  LoginScreen:31 - user succefully logged in
 2018-08-16 16:41:59 INFO  LoginScreen:32 - welcomeUser [username=jacob, password=null, firstName=jacob, lastName=shaw, age=26]
+2018-08-17 09:29:22 TRACE Launcher:11 - trace log
+2018-08-17 09:29:22 DEBUG Launcher:12 - debug log
+2018-08-17 09:29:22 INFO  Launcher:13 - info log
+2018-08-17 09:29:22 WARN  Launcher:14 - warn log
+2018-08-17 09:29:22 ERROR Launcher:15 - error log
+2018-08-17 09:29:22 FATAL Launcher:16 - fatal log
+2018-08-17 09:29:27 DEBUG LoginScreen:19 - started login screen
+2018-08-17 09:29:30 TRACE LoginScreen:22 - username = Kevin
+2018-08-17 09:29:31 DEBUG LoginScreen:30 - received users credentials
+2018-08-17 09:29:31 INFO  LoginScreen:34 - user succefully logged in
+2018-08-17 09:29:31 INFO  LoginScreen:35 - welcomeUser [id=1, username=Kevin, password=null, firstName=null, lastName=null, age=0]
+2018-08-17 10:01:23 TRACE Launcher:11 - trace log
+2018-08-17 10:01:23 DEBUG Launcher:12 - debug log
+2018-08-17 10:01:23 INFO  Launcher:13 - info log
+2018-08-17 10:01:23 WARN  Launcher:14 - warn log
+2018-08-17 10:01:23 ERROR Launcher:15 - error log
+2018-08-17 10:01:23 FATAL Launcher:16 - fatal log
+2018-08-17 10:01:28 DEBUG LoginScreen:19 - started login screen
+2018-08-17 10:02:55 TRACE LoginScreen:22 - username = Kevin
+2018-08-17 10:02:56 DEBUG LoginScreen:30 - received users credentials
+2018-08-17 10:02:56 INFO  LoginScreen:34 - user succefully logged in
+2018-08-17 10:02:56 INFO  LoginScreen:35 - welcomeUser [id=1, username=Kevin, password=null, firstName=null, lastName=null, age=0]
+2018-08-17 10:03:36 TRACE Launcher:11 - trace log
+2018-08-17 10:03:36 DEBUG Launcher:12 - debug log
+2018-08-17 10:03:36 INFO  Launcher:13 - info log
+2018-08-17 10:03:36 WARN  Launcher:14 - warn log
+2018-08-17 10:03:36 ERROR Launcher:15 - error log
+2018-08-17 10:03:36 FATAL Launcher:16 - fatal log
+2018-08-17 10:03:41 DEBUG LoginScreen:19 - started login screen
+2018-08-17 10:03:44 TRACE LoginScreen:22 - username = Kevin
+2018-08-17 10:03:44 DEBUG LoginScreen:30 - received users credentials
+2018-08-17 10:03:45 INFO  LoginScreen:34 - user succefully logged in
+2018-08-17 10:03:45 INFO  LoginScreen:35 - welcomeUser [id=1, username=Kevin, password=null, firstName=null, lastName=null, age=0]
+2018-08-17 10:04:07 TRACE WeaponDaoJdbc:29 - 1 records created
+2018-08-17 10:04:07 TRACE WeaponDaoJdbc:33 - generated weapon id is11
+2018-08-17 10:04:07 INFO  BuildAWeapon:40 - created weaponWeapon [weaponId=0, numberBlades=17, weight=3.0, weaponType=shuriken, userId=1]
+2018-08-17 10:06:37 TRACE Launcher:11 - trace log
+2018-08-17 10:06:37 DEBUG Launcher:12 - debug log
+2018-08-17 10:06:37 INFO  Launcher:13 - info log
+2018-08-17 10:06:37 WARN  Launcher:14 - warn log
+2018-08-17 10:06:37 ERROR Launcher:15 - error log
+2018-08-17 10:06:37 FATAL Launcher:16 - fatal log
+2018-08-17 10:06:42 DEBUG LoginScreen:19 - started login screen
+2018-08-17 10:06:45 TRACE LoginScreen:22 - username = Kevin
+2018-08-17 10:06:46 DEBUG LoginScreen:30 - received users credentials
+2018-08-17 10:06:46 INFO  LoginScreen:34 - user succefully logged in
+2018-08-17 10:06:46 INFO  LoginScreen:35 - welcomeUser [id=1, username=Kevin, password=null, firstName=null, lastName=null, age=0]
+2018-08-17 10:07:00 TRACE WeaponDaoJdbc:29 - 1 records created
+2018-08-17 10:07:00 TRACE WeaponDaoJdbc:33 - generated weapon id is12
+2018-08-17 10:07:00 INFO  BuildAWeapon:41 - created weaponWeapon [weaponId=12, numberBlades=0, weight=10.0, weaponType=sword, userId=1]
+2018-08-17 10:23:36 TRACE Launcher:11 - trace log
+2018-08-17 10:23:36 DEBUG Launcher:12 - debug log
+2018-08-17 10:23:36 INFO  Launcher:13 - info log
+2018-08-17 10:23:36 WARN  Launcher:14 - warn log
+2018-08-17 10:23:36 ERROR Launcher:15 - error log
+2018-08-17 10:23:36 FATAL Launcher:16 - fatal log
