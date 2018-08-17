@@ -405,3 +405,8 @@
 2018-08-17 10:23:36 WARN  Launcher:14 - warn log
 2018-08-17 10:23:36 ERROR Launcher:15 - error log
 2018-08-17 10:23:36 FATAL Launcher:16 - fatal log
+2018-08-17 10:23:41 DEBUG LoginScreen:19 - started login screen
+2018-08-17 10:23:46 TRACE LoginScreen:22 - username = Kevin
+2018-08-17 10:23:47 DEBUG LoginScreen:30 - received users credentials
+2018-08-17 10:23:47 INFO  LoginScreen:34 - user succefully logged in
+2018-08-17 10:23:47 INFO  LoginScreen:35 - welcomeUser [id=1, username=Kevin, password=null, firstName=null, lastName=null, age=0]
