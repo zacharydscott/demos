@@ -8,7 +8,7 @@ function addEntry(question, answer) {
     <td>${answer}</td>
   </tr>
   `;
-  console.log('added question')
+  console.log('added question');
 }
 
 function addEntrySafe(question, answer) {
@@ -36,3 +36,23 @@ function addNewQuestion() {
 }
 
 addEntry('what is your favore number', 3);
+let questions = [
+  {
+    question: 'how are you?',
+    answer: 'tired'
+  },
+  {
+    question: 'what is event bubbling',
+    answer: 'when an event occurs on an element it will propagate and invoke any event listers by any of its parents'
+  },
+  {
+    question: 'how do you select all elements with the class c',
+    answer: `document.getElementsByClassName('c')`
+  }
+]
+questions.forEach(each => {
+  addEntrySafe(each.question, each.answer);
+});
+
+// document.getElementById('question-submit-button')
+//   .addEventListener('click', addNewQuestion);
