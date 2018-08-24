@@ -55,12 +55,17 @@ movieRouter.get('/:id', async (req, resp) => {
   }
 });
 
+
+/**
+ * Create Movie
+ */
 movieRouter.post('', async (req, resp) => {
   try {
     const id = await movieDao.createMovie(req.body);
     resp.status(201);
     resp.json(id);
-  } catch {
+  } catch (err) {
+    console.log(err);
     resp.sendStatus(500);
   }
 })

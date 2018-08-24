@@ -36,7 +36,7 @@ export async function createMovie(movie): Promise<number> {
       `INSERT INTO movies.movies 
         (title, num_blades, year)
         VALUES ($1, $2, $3)
-        RETURNING id`, [movie.title, movie.numBlades, movie.year]);
+        RETURNING movie_id`, [movie.title, movie.numBlades, movie.year]);
     return resp.rows[0].id;
   } finally {
     client.release();

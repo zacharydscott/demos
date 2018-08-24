@@ -68,7 +68,7 @@ export async function create(user: User): Promise<number> {
       `INSERT INTO movies.app_users 
         (username, password, role)
         VALUES ($1, $2, 'customer') 
-        RETURNING id`, [user.username, user.password]);
+        RETURNING user_id`, [user.username, user.password]);
     return resp.rows[0].id;
   } finally {
     client.release();
