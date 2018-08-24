@@ -14,9 +14,12 @@ export async function findAll(): Promise<User[]> {
         USING (user_id)
         LEFT JOIN movies.movies m
         USING(movie_id)`);
-    const users = resp.rows.reduce((acc, user: any) => {
+
+    // extract the users and their movies from the result set
+    const users = [];
+    resp.rows.forEach((user: any) => {
       const movie = movieConverter(user);
-      const exists = acc.some( existingUser => {
+      const exists = users.some( existingUser => {
         if(user.user_id === existingUser.id) {
           movie.id && existingUser.movies.push(movie);
           return true;
@@ -25,10 +28,11 @@ export async function findAll(): Promise<User[]> {
       if (!exists) {
         const newUser = userConverter(user);
         movie.id && newUser.movies.push(movie);
-        acc.push(newUser);
+        users.push(newUser);
       }
-      return acc;
-    }, [])
+    })
+
+
     return users;
   } finally {
     client.release();
