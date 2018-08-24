@@ -66,3 +66,20 @@ userRouter.post('/:id/movies', async (req, resp) => {
     resp.sendStatus(500);
   }
 })
+
+userRouter.post('/login', async (req, resp) => {
+
+  try {
+    const user = await userDao.findByUsernameAndPassword(req.body.username, req.body.password);
+
+    if (user) {
+      req.session.user = user;
+      resp.json(user);
+    } else {
+      resp.sendStatus(401);
+    }
+  } catch (err) {
+    console.log(err);
+    resp.sendStatus(500);
+  }
+})

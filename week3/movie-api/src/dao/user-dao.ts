@@ -47,7 +47,7 @@ export async function findById(id: number): Promise<User> {
   const client = await connectionPool.connect();
   try {
     const resp = await client.query(
-      `SELECT * FROM movies.app_users
+      `SELECT * FROM movies.app_users u
         LEFT JOIN movies.users_movies
         USING (user_id)
         LEFT JOIN movies.movies
@@ -60,6 +60,26 @@ export async function findById(id: number): Promise<User> {
           movie.movie_id && user.movies.push(movieConverter(movie));
         })
         return user;
+  } finally {
+    client.release();
+  }
+}
+
+/**
+ * Retreive a single user by username and password, will also retreive all of that users movies
+ * @param id 
+ */
+export async function findByUsernameAndPassword(username: string, password: string): Promise<User> {
+  const client = await connectionPool.connect();
+  try {
+    const resp = await client.query(
+      `SELECT * FROM movies.app_users u
+        WHERE u.username = $1
+        AND u.password = $2`, [username, password]);
+        if(resp.rows.length !== 0) {
+          return userConverter(resp.rows[0]); // get the user data from first row
+        }
+        return null;
   } finally {
     client.release();
   }
