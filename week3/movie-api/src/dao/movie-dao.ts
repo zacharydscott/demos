@@ -1,28 +1,35 @@
 import { connectionPool } from "../util/connection-util";
+import { Movie } from "../model/movie";
+import { movieConverter } from "../util/movie-converter";
+import { SqlMovie } from "../dto/sql-movie";
 
 
-export async function findAll() {
+export async function findAll(): Promise<Movie[]> {
   const client = await connectionPool.connect();
   try {
-    const client = await connectionPool.connect();
     const resp = await client.query('SELECT * FROM movies.movies');
-    return resp.rows;
+    return resp.rows.map(movieConverter);
   } finally {
     client.release();
   }
 }
 
-export async function findById(id: number) {
+export async function findById(id: number): Promise<Movie> {
   const client = await connectionPool.connect();
   try {
-    const resp = await client.query('SELECT * FROM movies.movies WHERE id = $1', [id]);
-    return resp.rows;
+    const resp = await client.query('SELECT * FROM movies.movies WHERE movie_id = $1', [id]);
+    let movie: SqlMovie = resp.rows[0];
+    if (movie !== undefined) {
+      return movieConverter(movie);
+    } else {
+      return undefined;
+    }
   } finally {
     client.release();
   }
 }
 
-export async function createMovie(movie) {
+export async function createMovie(movie): Promise<number> {
   const client = await connectionPool.connect();
   try {
     const resp = await client.query(

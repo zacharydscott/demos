@@ -44,12 +44,13 @@ movieRouter.get('/:id', async (req, resp) => {
   console.log(`retreiving movie with id  ${id}`)
   try {
     let movie = await movieDao.findById(id);
-    if (movie[0] !== undefined) {
-      resp.json(movie[0]);
+    if (movie !== undefined) {
+      resp.json(movie);
     } else {
       resp.sendStatus(400);
     }
   } catch (err) {
+    console.log(err);
     resp.sendStatus(500);
   }
 });

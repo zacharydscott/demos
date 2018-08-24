@@ -6,4 +6,5 @@ export const connectionPool = new Pool({
   database: 'postgres',
   password: process.env["1808_MOVIE_DB_PASSWORD"],
   port: 5432,
+  max: 2
 })
