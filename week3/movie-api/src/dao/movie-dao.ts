@@ -3,7 +3,9 @@ import { Movie } from "../model/movie";
 import { movieConverter } from "../util/movie-converter";
 import { SqlMovie } from "../dto/sql-movie";
 
-
+/**
+ * Retreive all movies from the database
+ */
 export async function findAll(): Promise<Movie[]> {
   const client = await connectionPool.connect();
   try {
@@ -14,6 +16,10 @@ export async function findAll(): Promise<Movie[]> {
   }
 }
 
+/**
+ * Retreive a movie by its id
+ * @param id 
+ */
 export async function findById(id: number): Promise<Movie> {
   const client = await connectionPool.connect();
   try {
@@ -29,6 +35,10 @@ export async function findById(id: number): Promise<Movie> {
   }
 }
 
+/**
+ * Add a new movie to the DB
+ * @param movie 
+ */
 export async function createMovie(movie): Promise<number> {
   const client = await connectionPool.connect();
   try {

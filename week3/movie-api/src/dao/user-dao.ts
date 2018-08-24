@@ -4,49 +4,53 @@ import { User } from "../model/user";
 import { movieConverter } from "../util/movie-converter";
 import { userConverter } from "../util/user-converter";
 
-
+/**
+ * Retreive all users from the DB along with all their movies
+ */
 export async function findAll(): Promise<User[]> {
   const client = await connectionPool.connect();
   try {
     const resp = await client.query(
-      `SELECT * FROM movies.app_users u
+      `SELECT * FROM movies.app_users
         LEFT JOIN movies.users_movies
         USING (user_id)
-        LEFT JOIN movies.movies m
+        LEFT JOIN movies.movies
         USING(movie_id)`);
 
     // extract the users and their movies from the result set
     const users = [];
-    resp.rows.forEach((user: any) => {
-      const movie = movieConverter(user);
+    resp.rows.forEach((user_movie_result) => {
+      const movie = movieConverter(user_movie_result);
       const exists = users.some( existingUser => {
-        if(user.user_id === existingUser.id) {
+        if(user_movie_result.user_id === existingUser.id) {
           movie.id && existingUser.movies.push(movie);
           return true;
         }
       })
       if (!exists) {
-        const newUser = userConverter(user);
+        const newUser = userConverter(user_movie_result);
         movie.id && newUser.movies.push(movie);
         users.push(newUser);
       }
     })
-
-
     return users;
   } finally {
     client.release();
   }
 }
 
+/**
+ * Retreive a single user by id, will also retreive all of that users movies
+ * @param id 
+ */
 export async function findById(id: number): Promise<User> {
   const client = await connectionPool.connect();
   try {
     const resp = await client.query(
-      `SELECT * FROM movies.app_users u
+      `SELECT * FROM movies.app_users
         LEFT JOIN movies.users_movies
         USING (user_id)
-        LEFT JOIN movies.movies m
+        LEFT JOIN movies.movies
         USING(movie_id)
         WHERE u.user_id = $1`, [id]);
         const user = userConverter(resp.rows[0]); // get the user data from first row
@@ -61,6 +65,11 @@ export async function findById(id: number): Promise<User> {
   }
 }
 
+
+/**
+ * Add a new user to the DB
+ * @param user 
+ */
 export async function create(user: User): Promise<number> {
   const client = await connectionPool.connect();
   try {
@@ -75,7 +84,12 @@ export async function create(user: User): Promise<number> {
   }
 }
 
-export async function addMovie(movieId: number, userId: number): Promise<any> {
+/**
+ * Add a movie to a users list
+ * @param movieId 
+ * @param userId 
+ */
+export async function addMovieToUser(movieId: number, userId: number): Promise<any> {
   const client = await connectionPool.connect();
   try {
     const resp = await client.query(

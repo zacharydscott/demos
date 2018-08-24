@@ -59,7 +59,7 @@ userRouter.post('', async (req, resp) => {
 userRouter.post('/:id/movies', async (req, resp) => {
   console.log('creating user')
   try {
-    const id = await userDao.addMovie(req.body.movieId, req.params.id);
+    const id = await userDao.addMovieToUser(req.body.movieId, req.params.id);
     resp.sendStatus(201);
   } catch (err) {
     console.log(err);
