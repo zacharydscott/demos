@@ -4,7 +4,7 @@ CREATE TABLE movies.movies
     title character varying(50) NOT NULL,
     num_blades integer,
     year numeric(4) NOT NULL,
-    PRIMARY KEY (id),
+    PRIMARY KEY (movie_id),
     CONSTRAINT title_year UNIQUE (title, year)
 
 )
@@ -15,7 +15,7 @@ CREATE TABLE movies.app_users
     username character varying(15)  NOT NULL,
     password character varying(15)  NOT NULL,
     role character varying(8)  NOT NULL,
-    CONSTRAINT app_users_pkey PRIMARY KEY (id),
+    CONSTRAINT app_users_pkey PRIMARY KEY (user_id),
     CONSTRAINT unique_usernames UNIQUE (username)
 )
 
