@@ -37,12 +37,30 @@ userRouter.get('/:id', async (req, resp) => {
   }
 });
 
+/**
+ * Add a new user
+ */
 userRouter.post('', async (req, resp) => {
   console.log('creating user')
   try {
     const id = await userDao.create(req.body);
     resp.status(201);
     resp.json(id);
+  } catch (err) {
+    console.log(err);
+    resp.sendStatus(500);
+  }
+})
+
+
+/**
+ * Add a movie to users list
+ */
+userRouter.post('/:id/movies', async (req, resp) => {
+  console.log('creating user')
+  try {
+    const id = await userDao.addMovie(req.body.movieId, req.params.id);
+    resp.sendStatus(201);
   } catch (err) {
     console.log(err);
     resp.sendStatus(500);

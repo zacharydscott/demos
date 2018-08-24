@@ -7,7 +7,7 @@ CREATE TABLE movies.movies
     PRIMARY KEY (movie_id),
     CONSTRAINT title_year UNIQUE (title, year)
 
-)
+);
 
 CREATE TABLE movies.app_users
 (
@@ -17,7 +17,7 @@ CREATE TABLE movies.app_users
     role character varying(8)  NOT NULL,
     CONSTRAINT app_users_pkey PRIMARY KEY (user_id),
     CONSTRAINT unique_usernames UNIQUE (username)
-)
+);
 
 CREATE TABLE movies.users_movies
 (
@@ -28,5 +28,4 @@ CREATE TABLE movies.users_movies
         REFERENCES movies.movies (movie_id),
     CONSTRAINT user_fk FOREIGN KEY (user_id)
         REFERENCES movies.app_users (user_id)
-)
-
+);

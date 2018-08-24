@@ -25,6 +25,7 @@ if (app.get('env') === 'production') {
   sess.cookie.secure = true; // serve secure cookies
 }
 
+// register session middleware
 app.use(session(sess));
 
 // log the request being made
