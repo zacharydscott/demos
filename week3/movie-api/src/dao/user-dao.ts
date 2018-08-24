@@ -69,7 +69,7 @@ export async function create(user: User): Promise<number> {
         (username, password, role)
         VALUES ($1, $2, 'customer') 
         RETURNING user_id`, [user.username, user.password]);
-    return resp.rows[0].id;
+    return resp.rows[0].user_id;
   } finally {
     client.release();
   }

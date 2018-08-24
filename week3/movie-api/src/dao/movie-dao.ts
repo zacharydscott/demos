@@ -37,7 +37,7 @@ export async function createMovie(movie): Promise<number> {
         (title, num_blades, year)
         VALUES ($1, $2, $3)
         RETURNING movie_id`, [movie.title, movie.numBlades, movie.year]);
-    return resp.rows[0].id;
+    return resp.rows[0].movie_id;
   } finally {
     client.release();
   }
