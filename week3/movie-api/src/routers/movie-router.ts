@@ -11,7 +11,6 @@ export const movieRouter = express.Router(); // routers represent a subset of ro
  * Find all movies
  */
 movieRouter.get('', [
-  authMiddleware('admin', 'customer'),
   async (req: Request, resp: Response) => {
     try {
       console.log('retrieving all movies');

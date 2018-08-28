@@ -10,7 +10,7 @@ import { userRouter } from './routers/user-router';
 const app = express();
 
 // set the port
-const port = process.env.PORT || 9001; // will use port from computers environment variables or 3000 if there is none
+const port = 3000; // will use port from computers environment variables or 3000 if there is none
 app.set('port', port);
 
 const sess = {
@@ -41,6 +41,13 @@ app.use(
 
 // use the body parser to convert request json
 app.use(bodyParser.json());
+
+// allows cors headers
+app.use((req, resp, next) => {
+  resp.header("Access-Control-Allow-Origin", "*");
+  resp.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+})
 
 /*********************************************************************************************
  * API Routers
