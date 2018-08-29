@@ -6,12 +6,12 @@ interface IProps {
   name: string;
 }
 export const ClickerIncrementer: React.StatelessComponent<IProps> = (props) => {
-
+  const {value, name, increment} = props;
   return (
     <button 
           className="btn btn-primary"
-          onClick={() => {props.increment(props.value)}}
-          >{props.name}</button>
+          onClick={() => {increment(value)}}
+          >{name}</button>
   )
 
 }

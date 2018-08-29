@@ -6,7 +6,7 @@ interface IState {
   clicks: number;
 }
 
-export class ClickerComponent extends React.Component<{}, IState> {
+export class ClickerComponent extends React.Component<any, IState> {
 
   constructor(props: any) {
     super(props);
@@ -16,21 +16,24 @@ export class ClickerComponent extends React.Component<{}, IState> {
   }
 
   public increment = (value: number) => {
-    this.setState({ clicks: this.state.clicks + value });
+    this.setState({
+      ...this.state,
+      clicks: this.state.clicks + value
+    });
   }
 
   public render() {
     return (
       <div>
-        <ClickerDisplay clicks={this.state.clicks}/>
-        <ClickerIncrementer 
-          increment={this.increment} 
-          value={1} 
-          name="Click!"/>
-        {(this.state.clicks >= 20) && <ClickerIncrementer 
-          increment={this.increment} 
-          value={5} 
-          name="Big Click!"/>}
+        <ClickerDisplay clicks={this.state.clicks} />
+        <ClickerIncrementer
+          increment={this.increment}
+          value={1}
+          name="Click!" />
+        {(this.state.clicks >= 20) && <ClickerIncrementer
+          increment={this.increment}
+          value={5}
+          name="Big Click!" />}
       </div>
     );
   }

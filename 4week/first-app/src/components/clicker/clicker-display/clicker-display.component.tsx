@@ -10,9 +10,10 @@ export class ClickerDisplay extends React.Component<IProps, {}> {
   }
 
   public render() {
+    const { clicks } = this.props;
     return (
-      <p className={(this.props.clicks % 5 === 0) ? 'blue' : 'red'}> 
-        clicks: {this.props.clicks} 
+      <p className={(clicks % 5 === 0) ? 'blue' : 'red'}> 
+        clicks: {clicks} 
       </p>
     )
   }
