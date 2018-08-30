@@ -5,8 +5,9 @@ import { ClickerDisplay } from "./clicker-display/clicker-display.component";
 import { ClickerIncrementer } from './incrementers/clicker-incrementer.component';
 
 describe('<ClickerComponent />', () => {
+  const filler: any = null;
   it ('renders one <ClickerDisplayComponent />', () => {
-    const wrapper = shallow(<ClickerComponent />);
+    const wrapper = shallow(<ClickerComponent {...filler}/>);
     expect(wrapper.find(ClickerDisplay)).toHaveLength(1);
   })
 
