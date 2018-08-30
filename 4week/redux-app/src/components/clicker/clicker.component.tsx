@@ -11,7 +11,7 @@ interface IProps {
   buyJoke: () => void
 }
 
-class ClickerComponent extends React.Component<IProps, {}> {
+export class ClickerComponent extends React.Component<IProps, {}> {
 
   constructor(props: any) {
     super(props);
