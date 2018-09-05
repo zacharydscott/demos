@@ -1,15 +1,19 @@
 version: 0.1
 environment_variables:
     plaintext:
-        S3_BUCKET: "demo-bucket"
+        S3_BUCKET: "1808-demo-bucket"
 phases:
     install:
         commands:
             - echo Installing source NPM dependencies...
+            - cd 4week
+            - cd redux-sass
             - npm install
     build:
         commands:
             - echo Build started on `date`
+            - cd 4week
+            - cd redux-sass
             - npm run build
     post_build:
         commands:
