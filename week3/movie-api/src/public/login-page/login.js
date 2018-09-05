@@ -4,7 +4,7 @@ function login(event) {
   let password = document.getElementById("inputPassword").value;
 
   const credentials = { username, password };
-  fetch("http://localhost:3000/users/login", {
+  fetch("http://localhost:3001/users/login", {
     method: "POST",
     headers: {
       Accept: "application/json",

@@ -10,7 +10,7 @@ import { userRouter } from './routers/user-router';
 const app = express();
 
 // set the port
-const port = 3000 || process.env.PORT; // will use port from computers environment variables or 3000 if there is none
+const port = 3001 || process.env.PORT; // will use port from computers environment variables or 3000 if there is none
 app.set('port', port);
 
 const sess = {
