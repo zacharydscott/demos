@@ -23,7 +23,7 @@ export const fetchPokemon = (id: number) => (dispatch: any) => {
     .then((respObj: any) => {
       const sprites = [];
       for(const label in respObj.sprites) {
-        if (label) {
+        if (label && respObj.sprites[label]) {
           sprites.push(new PokemonSprite(label, respObj.sprites[label]));
         }
       }

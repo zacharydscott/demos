@@ -10,7 +10,7 @@ import { userRouter } from './routers/user-router';
 const app = express();
 
 // set the port
-const port = 3000; // will use port from computers environment variables or 3000 if there is none
+const port = 3000 || process.env.PORT; // will use port from computers environment variables or 3000 if there is none
 app.set('port', port);
 
 const sess = {
@@ -42,14 +42,15 @@ app.use(
 // use the body parser to convert request json
 app.use(bodyParser.json());
 
-// allows cors headers
+// allow cross origins
 app.use((req, resp, next) => {
-  resp.header("Access-Control-Allow-Origin", "http://localhost:9001");
-  resp.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  resp.header("Access-Control-Allow-Credentials", "true");
+  (process.env.MOVIE_API_STAGE === 'prod')
+    ? resp.header('Access-Control-Allow-Origin', process.env.DEMO_APP_URL)
+    : resp.header('Access-Control-Allow-Origin', `http://localhost:9001`);
+  resp.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  resp.header('Access-Control-Allow-Credentials', 'true');
   next();
-})
-
+});
 /*********************************************************************************************
  * API Routers
  ********************************************************************************************/
