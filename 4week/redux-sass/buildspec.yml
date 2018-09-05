@@ -23,5 +23,5 @@ phases:
 artifacts:
     files:
         - '**/*'
-    base-directory: 'dist*'
+    base-directory: '4week/redux-sass/build*'
     discard-paths: yes
