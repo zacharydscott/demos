@@ -6,15 +6,11 @@ phases:
     install:
         commands:
             - echo Installing source NPM dependencies...
-            - cd 4week
-            - cd redux-sass
-            - npm install
+            - cd 4week && cd redux-sass && npm install
     build:
         commands:
             - echo Build started on `date`
-            - cd 4week
-            - cd redux-sass
-            - npm run build
+            - cd 4week && cd redux-sass &&npm run build
     post_build:
         commands:
             - echo "$CODEBUILD_BUILD_SUCCEEDING"
