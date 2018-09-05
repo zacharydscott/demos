@@ -1,7 +1,7 @@
 version: 0.1
 environment_variables:
     plaintext:
-        S3_BUCKET: "1808-demo-bucket-blake"
+        S3_BUCKET: "1808demo.bucket.zach"
 phases:
     install:
         commands:
