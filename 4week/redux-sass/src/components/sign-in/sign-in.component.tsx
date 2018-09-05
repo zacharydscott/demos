@@ -62,7 +62,7 @@ class SignInComponent extends React.Component<IProps, {}> {
 
     return (
       <form className="form-signin" onSubmit={this.submit}>
-        <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
+        <h1 className="h3 mb-3 font-weight-normal">Please sign in: this autoupdated</h1>
 
         <label htmlFor="inputUsername" className="sr-only">Username</label>
         <input
