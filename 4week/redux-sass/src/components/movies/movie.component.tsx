@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { environment } from '../../environment';
 
 export class MoviesComponent extends React.Component<any, any> {
 
@@ -10,7 +11,7 @@ export class MoviesComponent extends React.Component<any, any> {
   }
 
   public componentDidMount() {
-    fetch('http://localhost:3000/movies', {
+    fetch(environment.context + 'movies', {
       credentials: 'include'
     })
       .then(resp => resp.json())

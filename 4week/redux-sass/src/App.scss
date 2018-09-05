@@ -52,8 +52,7 @@ body {
   align-items: center
 }
 
-
-button.rev-btn {
+.rev-btn {
   background-color: $revature-orange;
   border-color: $revature-orange;
   color: black;
@@ -71,6 +70,8 @@ button.rev-btn {
     box-shadow: 0 0 0 0.2rem rgba($revature-orange, 0.5);
   }
 }
+
+
 
 /*****************************
   NAV

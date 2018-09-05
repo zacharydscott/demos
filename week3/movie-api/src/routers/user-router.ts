@@ -71,7 +71,7 @@ userRouter.post('/login', async (req, resp) => {
 
   try {
     const user = await userDao.findByUsernameAndPassword(req.body.username, req.body.password);
-
+    console.log(user);
     if (user) {
       req.session.user = user;
       resp.json(user);
